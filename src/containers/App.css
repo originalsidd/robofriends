@@ -10,3 +10,9 @@ h1 {
 	font-weight: 200;
 	color: #0ccac4;
 }
+
+.empty {
+	font-family: monospace;
+	font-weight: 400;
+	color: #0ccac4;
+}

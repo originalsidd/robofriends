@@ -32,16 +32,24 @@ class App extends React.Component {
 		const {robots, searchfield} = this.state;
 		const filteredRobots =robots.filter(robot =>  robot.name.toLowerCase().includes(searchfield.toLowerCase()));
 		return !robots.length ?
-			<h1>Loading...</h1> :
-			(
-				<div className='tc'>
-					<h1 className='f1'>RoboFriends</h1>
-					<SearchBox searchChange={this.onSearchChange} />
-					<Scroll>
-						<CardList robots={filteredRobots} />
-					</Scroll>
-				</div>
-			);
+			<h1>Loading...</h1> : (filteredRobots.length ? 
+				(
+					<div className='tc'>
+						<h1 className='f1'>RoboFriends</h1>
+						<SearchBox searchChange={this.onSearchChange} />
+						<Scroll>
+							<CardList robots={filteredRobots} />
+						</Scroll>
+					</div>
+				) : 
+				(
+					<div className='tc'>
+						<h1 className='f1'>RoboFriends</h1>
+						<SearchBox searchChange={this.onSearchChange} />
+						<h2 className="empty">No robots with name {searchfield}</h2>
+					</div>
+				)
+			)
 	}
 }
 
